@@ -289,3 +289,4 @@ aws logs delete-log-group --log-group-name /ecs/webapp-cicd-task
 
 🎉 **Congratulations! I built a full AWS DevOps pipeline!**
 # ECR permissions fixed
+# CloudWatch Logs permissions fixed
