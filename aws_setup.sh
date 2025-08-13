@@ -162,7 +162,7 @@ aws ecs register-task-definition \
     --execution-role-arn $EXECUTION_ROLE_ARN \
     --container-definitions '[
         {
-            "name": "webapp",
+            "name": "webapp-container",
             "image": "nginx:latest",
             "portMappings": [
                 {
