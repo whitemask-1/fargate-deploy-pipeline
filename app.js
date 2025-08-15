@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const client = require('prom-client');
 const PORT = process.env.PORT || 3001;
 
 // Simple home page
@@ -11,6 +12,12 @@ app.get('/', (req, res) => {
     <p>Current time: ${new Date().toLocaleString()}</p>
     <p>Container ID: ${require('os').hostname()}</p>
   `);
+});
+
+// Create a default metrics endpoint
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  res.end(await client.register.metrics());
 });
 
 // Health check endpoint (important for ECS)
